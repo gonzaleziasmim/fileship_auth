@@ -1,4 +1,5 @@
 use bcrypt::{hash, verify};
+use chrono::{Duration, Utc};
 use jsonwebtoken::{encode, Header, EncodingKey};
 use serde::Serialize;
 use std::env;
@@ -23,10 +24,12 @@ pub async fn verify_password(password: &str, hashed: &str) -> Result<bool, bcryp
 // Generate a JWT for the user
 pub async fn generate_jwt(email: &str) -> String {
     let secret_key = env::var("JWT_SECRET").expect("JWT_SECRET must be set");
+    let expiration_in_days = 7;
+    let expiration_time = Utc::now() + Duration::days(expiration_in_days);
 
     let claims = Claims {
         sub: email.to_string(),
-        exp: 10000000000,
+        exp: expiration_time.timestamp() as usize,
     };
 
     encode(
