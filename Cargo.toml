@@ -1,16 +1,15 @@
 [package]
-name = "fileship_auth"
+name = "fileship_auth_hyper"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-axum = "0.7.5"                  # Web framework
+hyper = { version = "0.14.30", features = ["full"] }
 tokio = { version = "1", features = ["full"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-bcrypt = "0.15.1"            # Password hashing
-jsonwebtoken = "9.3.0"          # JWT creation/verification
-mongodb = "3.1.0"               # MongoDB driver
-dotenvy = "0.15"              # Environment variable loader
-thiserror = "1.0"             # Error handling
-
+mongodb = "3.1.0"
+jsonwebtoken = "9.3.0"
+bcrypt = "0.15.1"
+dotenvy = "0.15"
+futures-util = "0.3.30"
