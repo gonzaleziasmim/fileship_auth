@@ -24,14 +24,14 @@ pub async fn verify_password(password: &str, hashed: &str) -> Result<bool, bcryp
 pub async fn generate_jwt(email: &str) -> String {
     let secret_key = env::var("JWT_SECRET").expect("JWT_SECRET must be set");
 
-    let my_claims = Claims {
+    let claims = Claims {
         sub: email.to_string(),
         exp: 10000000000,
     };
 
     encode(
         &Header::default(),
-        &my_claims,
+        &claims,
         &EncodingKey::from_secret(secret_key.as_ref()),
     )
     .unwrap()
