@@ -76,7 +76,7 @@ fn success_response(message: &str) -> Response<Body> {
     Response::builder()
         .header(hyper::header::CONTENT_TYPE, "application/json")
         .status(StatusCode::OK)
-        .body(Body::from(message.to_string()))  // Convert &str to String
+        .body(Body::from(message.to_string()))
         .unwrap()
 }
 
@@ -84,7 +84,7 @@ fn bad_request_response(message: &str) -> Response<Body> {
     Response::builder()
         .header(hyper::header::CONTENT_TYPE, "application/json")
         .status(StatusCode::BAD_REQUEST)
-        .body(Body::from(message.to_string()))  // Convert &str to String
+        .body(Body::from(message.to_string())) 
         .unwrap()
 }
 
@@ -92,7 +92,7 @@ fn internal_server_error_response(message: &str) -> Response<Body> {
     Response::builder()
         .header(hyper::header::CONTENT_TYPE, "application/json")
         .status(StatusCode::INTERNAL_SERVER_ERROR)
-        .body(Body::from(message.to_string()))  // Convert &str to String
+        .body(Body::from(message.to_string()))
         .unwrap()
 }
 
@@ -100,7 +100,7 @@ fn unauthorized_response() -> Response<Body> {
     Response::builder()
         .header(hyper::header::CONTENT_TYPE, "application/json")
         .status(StatusCode::UNAUTHORIZED)
-        .body(Body::from("Invalid credentials".to_string()))  // Convert &str to String
+        .body(Body::from("Invalid credentials".to_string()))
         .unwrap()
 }
 
@@ -108,6 +108,6 @@ fn not_found_response() -> Response<Body> {
     Response::builder()
         .header(hyper::header::CONTENT_TYPE, "application/json")
         .status(StatusCode::NOT_FOUND)
-        .body(Body::from("Not Found".to_string()))  // Convert &str to String
+        .body(Body::from("Not Found".to_string()))
         .unwrap()
 }

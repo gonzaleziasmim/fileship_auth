@@ -26,7 +26,7 @@ pub async fn generate_jwt(email: &str) -> String {
 
     let my_claims = Claims {
         sub: email.to_string(),
-        exp: 10000000000,  // Expiration timestamp (set properly)
+        exp: 10000000000,
     };
 
     encode(

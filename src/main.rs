@@ -2,6 +2,7 @@ mod routes;
 mod services;
 mod db;
 mod models;
+mod error;
 
 use hyper::{Server, Request, Body};
 use std::sync::Arc;
