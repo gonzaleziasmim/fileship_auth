@@ -1,0 +1,16 @@
+[package]
+name = "fileship_auth"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = "0.7.5"                  # Web framework
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+bcrypt = "0.15.1"            # Password hashing
+jsonwebtoken = "9.3.0"          # JWT creation/verification
+mongodb = "3.1.0"               # MongoDB driver
+dotenvy = "0.15"              # Environment variable loader
+thiserror = "1.0"             # Error handling
+
